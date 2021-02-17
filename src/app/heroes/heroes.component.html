@@ -1,9 +1,4 @@
-<!--
-    pipes: a functional way to format passed-in props
-    https://angular.io/guide/pipes
-    works client-side (example: updating the hero name below)
-    Angular strips all these comments on compilation
--->
+
 
 <!-- part 2: display a list -->
 <h2>My Heroes</h2>
@@ -19,15 +14,4 @@
     </li>
 </ul>
 
-<!-- the "ng" in these directives probably short for "Angular," as with invoking it at the command line -->
-<!-- ngIf is a directive that means, if the specified expression evaluates to true, include this part of the template -->
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedHero.id}}</div>
-    <div>
-        <label>name:
-            <!-- two-way data binding using ngModel; data flows from the class to fill the input and to the screen, and from the screen back to the class -->
-            <input [(ngModel)]="selectedHero.name" placeholder="name" />
-        </label>
-    </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

@@ -1,0 +1,19 @@
+<!--
+    pipes: a functional way to format passed-in props
+    https://angular.io/guide/pipes
+    works client-side (example: updating the hero name below)
+    Angular strips all these comments on compilation
+-->
+
+<!-- the "ng" in these directives probably short for "Angular," as with invoking it at the command line -->
+<!-- ngIf is a directive that means, if the specified expression evaluates to true, include this part of the template -->
+<div *ngIf="hero">
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+        <label>name:
+            <!-- two-way data binding using ngModel; data flows from the class to fill the input and to the screen, and from the screen back to the class -->
+            <input [(ngModel)]="hero.name" placeholder="name" />
+        </label>
+    </div>
+</div>
