@@ -1,0 +1,33 @@
+<!--
+    pipes: a functional way to format passed-in props
+    https://angular.io/guide/pipes
+    works client-side (example: updating the hero name below)
+    Angular strips all these comments on compilation
+-->
+
+<!-- part 2: display a list -->
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- repeater directive: makes instances of a host element (here, li) for each prop element in a list (each hero in the heroes we pass in) -->
+    <!-- click event binding: when bound, it listens for a click and executes whatever expression is specified, such as a function -->
+    <!-- class binding: adds a class when an expression evaluates to true, such as the hero passed in being equal to selectedHero -->
+    <!-- splitting element declarations like this is fine, and useful for elements with lots of things bound to them -->
+    <li *ngFor="let hero of heroes" 
+    (click)="onSelect(hero)" 
+    [class.selected]="hero === selectedHero">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+
+<!-- the "ng" in these directives probably short for "Angular," as with invoking it at the command line -->
+<!-- ngIf is a directive that means, if the specified expression evaluates to true, include this part of the template -->
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+        <label>name:
+            <!-- two-way data binding using ngModel; data flows from the class to fill the input and to the screen, and from the screen back to the class -->
+            <input [(ngModel)]="selectedHero.name" placeholder="name" />
+        </label>
+    </div>
+</div>
